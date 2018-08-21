@@ -34,6 +34,7 @@ class CodeEduBookServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        $this->app->register(RepositoryServiceProvider::class);
     }
 
     /**
@@ -99,7 +100,7 @@ class CodeEduBookServiceProvider extends ServiceProvider
 
     public function publishMigrationsAndSeeders()
     {
-        $sourcePath = __DIR__.'/../database/migrations';
+        $sourcePath = __DIR__ . '/../database/migrations';
         $this->publishes([
             $sourcePath => database_path('migrations')
         ], 'migrations');
